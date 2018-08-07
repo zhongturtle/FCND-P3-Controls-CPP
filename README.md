@@ -173,10 +173,11 @@ To accomplish this, you will:
 1. Implement body rate control
 
  - implement the code in the function `GenerateMotorCommands()`
- - - I implement this simple fuction to generate motor command by put thrust and rotation moment about each axis together and the output will be the command
+   - I implement this simple fuction to generate motor command by put thrust and rotation moment about each axis together and the output will be the command
  - implement the code in the function `BodyRateControl()`
- - - just simple fuction to calculate moment command
+   - just simple fuction to calculate moment command
  - Tune `kpPQR` in `QuadControlParams.txt` to get the vehicle to stop spinning quickly but not overshoot
+   - I set `kpPQR = 80 ,80 , 6`
 
 If successful, you should see the rotation of the vehicle about roll (omega.x) get controlled to 0 while other rates remain zero.  Note that the vehicle will keep flying off quite quickly, since the angle is not yet being controlled back to 0.  Also note that some overshoot will happen due to motor dynamics!.
 
@@ -186,7 +187,9 @@ If you come back to this step after the next step, you can try tuning just the b
 We won't be worrying about yaw just yet.
 
  - implement the code in the function `RollPitchControl()`
+   - because of we've implement this in the Lesson 4 parctice , so this is very simple for me to implement this fuction to control the roll and pitch
  - Tune `kpBank` in `QuadControlParams.txt` to minimize settling time but avoid too much overshoot
+   - I set `kpBank = 11`
 
 If successful you should now see the quad level itself (as shown below), though it’ll still be flying away slowly since we’re not controlling velocity/position!  You should also see the vehicle angle (Roll) get controlled to 0.
 
@@ -200,14 +203,20 @@ If successful you should now see the quad level itself (as shown below), though 
 Next, you will implement the position, altitude and yaw control for your quad.  For the simulation, you will use `Scenario 3`.  This will create 2 identical quads, one offset from its target point (but initialized with yaw = 0) and second offset from target point but yaw = 45 degrees.
 
  - implement the code in the function `LateralPositionControl()`
+   - we have to consider about what if when velocity or accelrate > 0 
  - implement the code in the function `AltitudeControl()`
+   - in the parctice, we can implement this part with rollpitch control and yawcontrol , but I try to implement this part by scratch, and it works.
  - tune parameters `kpPosZ` and `kpPosZ`
+   - I set `kpPosXY = 30` , `kpPosZ = 25` and `kiPosZ = 45`
  - tune parameters `kpVelXY` and `kpVelZ`
+   - I set `kpVelXY = 10` and `kpVelZ = 9`
 
 If successful, the quads should be going to their destination points and tracking error should be going down (as shown below). However, one quad remains rotated in yaw.
 
  - implement the code in the function `YawControl()`
+   - this part we just need to caulate the yaw 
  - tune parameters `kpYaw` and the 3rd (z) component of `kpPQR`
+   - I set `kpYaw = 6` and `the 3rd (z) component of kpPQR = 6`  
 
 Tune position control for settling time. Don’t try to tune yaw control too tightly, as yaw control requires a lot of control authority from a quadcopter and can really affect other degrees of freedom.  This is why you often see quadcopters with tilted motors, better yaw authority!
 
@@ -225,6 +234,7 @@ In this part, we will explore some of the non-idealities and robustness of a con
  - The red vehicle is heavier than usual
 
 1. Run your controller & parameter set from Step 3.  Do all the quads seem to be moving OK?  If not, try to tweak the controller parameters to work for all 3 (tip: relax the controller).
+   - it looks great
 
 2. Edit `AltitudeControl()` to add basic integral control to help with the different-mass vehicle.
 
