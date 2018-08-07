@@ -173,7 +173,9 @@ To accomplish this, you will:
 1. Implement body rate control
 
  - implement the code in the function `GenerateMotorCommands()`
+ - - I implement this simple fuction to generate motor command by put thrust and rotation moment about each axis together and the output will be the command
  - implement the code in the function `BodyRateControl()`
+ - - just simple fuction to calculate moment command
  - Tune `kpPQR` in `QuadControlParams.txt` to get the vehicle to stop spinning quickly but not overshoot
 
 If successful, you should see the rotation of the vehicle about roll (omega.x) get controlled to 0 while other rates remain zero.  Note that the vehicle will keep flying off quite quickly, since the angle is not yet being controlled back to 0.  Also note that some overshoot will happen due to motor dynamics!.
