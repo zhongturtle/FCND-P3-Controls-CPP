@@ -1,5 +1,6 @@
 # The C++ Project Readme #
-
+- Not complete
+- need to write rubric
 This is the readme for the C++ project.
 
 For easy navigation throughout this document, here is an outline:
