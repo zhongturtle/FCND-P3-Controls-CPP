@@ -1,8 +1,6 @@
 # The C++ Project Readme #
-- **Not complete**
-- **need to write rubric**
-- **The writeup / README should include a statement and supporting figures / images that explain how each rubric item was addressed, and specifically where in the code each step was handled.
-This is the readme for the C++ project.**
+
+This is the readme for the C++ project.
 
 For easy navigation throughout this document, here is an outline:
 
