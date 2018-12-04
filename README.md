@@ -292,7 +292,9 @@ There are two ways to view the output of the evaluation:
 ### Performance Metrics ###
 
 The specific performance metrics are as follows:
-
+ - scenario1
+   - intro
+   - ![]
  - scenario 2
    - roll should less than 0.025 radian of nominal for 0.75 seconds (3/4 of the duration of the loop)
    - roll rate should less than 2.5 radian/sec for 0.75 seconds
@@ -307,6 +309,8 @@ The specific performance metrics are as follows:
 
  - scenario 5
    - position error of the quad should be less than 0.25 meters for at least 3 seconds
+
+
 
 ## Authors ##
 
