@@ -292,7 +292,9 @@ There are two ways to view the output of the evaluation:
 The specific performance metrics are as follows:
  - scenario1
    - intro
-   - ![result/scenario1](scenario1)
+<p align="center">
+<img src="result/scenario1.png" width="500"/>
+</p>
  - scenario 2
    - roll should less than 0.025 radian of nominal for 0.75 seconds (3/4 of the duration of the loop)
    - roll rate should less than 2.5 radian/sec for 0.75 seconds
